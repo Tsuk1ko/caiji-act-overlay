@@ -174,7 +174,7 @@ body {
     font-size: 14px;
     color: white;
     text-align: left;
-    padding: 0 28px;
+    padding: 0 26px 0 10px;
     div {
       background-color: rgba(244, 67, 54, 0.5);
       padding-left: 16px;
@@ -193,7 +193,7 @@ body {
     min-height: 100px;
     color: white;
     text-align: left;
-    padding: 12px 22px 0 38px;
+    padding: 8px 18px 0 18px;
     .items {
       width: 100%;
       height: 100%;
