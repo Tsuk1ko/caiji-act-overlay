@@ -7,16 +7,8 @@
 <script>
 export default {
   name: 'Percent',
-  data () {
-    return {
-    }
-  },
   props: {
-    percent: { type: Number, default: 50 }
-  }
-}
+    percent: { type: Number, default: 0 },
+  },
+};
 </script>
-
-<style>
-
-</style>

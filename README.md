@@ -1,6 +1,6 @@
-# nbb.aethersand
+# Caiji ACT Overlay
 
-适用于act的标签模板灵砂时钟
+适用于 ACT Overlay 的采集时钟
 
 ## Project setup
 ```
