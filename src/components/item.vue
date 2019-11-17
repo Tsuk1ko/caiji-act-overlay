@@ -1,11 +1,11 @@
 <template>
   <div class="item-list">
-    <span class="pos">[{{ item.pos }}]</span>
+    <span class="pos no-select">[{{ item.pos }}]</span>
     <span class="name">{{ item.name }}</span>
     <span class="ls">{{ item.ls }}</span>
-    <span> ET.{{ item.start }}</span>
-    <span v-if="cur"> 余{{ str }} </span>
-    <span v-else>LT.{{ item.startTimeStr }}</span>
+    <span class="no-select"> ET.{{ item.start }}</span>
+    <span class="no-select" v-if="cur"> 余{{ str }} </span>
+    <span class="no-select" v-else>LT.{{ item.startTimeStr }}</span>
   </div>
 </template>
 
@@ -66,5 +66,3 @@ export default {
   },
 };
 </script>
-
-<style></style>

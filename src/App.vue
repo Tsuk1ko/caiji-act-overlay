@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="resizable">
-    <div class="head">
+    <div class="head no-select">
       <div>
         <span>5.0 采集时钟</span>
         <span class="time">ET {{ ET }}</span>
@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-    <div class="setting" v-show="showSetting">
+    <div class="setting no-select" v-show="showSetting">
       <div class="close btn" @click="showSetting = false">[X]</div>
       <div class="checkbox-group">
         <div class="checkbox" v-for="(v, k) in showItem" :key="k">
@@ -158,6 +158,8 @@ body {
 }
 .btn {
   cursor: pointer;
+}
+.no-select {
   user-select: none;
 }
 #app {
@@ -214,6 +216,9 @@ body {
           margin: 0 4px;
           font-size: 12px;
         }
+        .pos {
+          font-size: 14px;
+        }
         .name {
           width: 90px;
           font-size: 14px;
@@ -258,7 +263,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    user-select: none;
     .close {
       position: absolute;
       right: 8px;
