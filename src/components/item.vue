@@ -90,8 +90,10 @@ export default {
     top: 0;
     bottom: 0;
     left: 0;
-    background-color: #004d40;
-    z-index: -1;
+    background-color: rgba(28, 95, 32, 0.65);
+  }
+  :not(.progress) {
+    z-index: 100;
   }
   .pos {
     font-size: 14px;
