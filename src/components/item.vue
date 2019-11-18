@@ -30,7 +30,7 @@ function padTime(time) {
 export default {
   name: 'Item',
   props: {
-    item: { type: Object, default: {} },
+    item: { type: Object, default: () => {} },
     hour: { type: Number, default: 0 },
     sec: { type: Number, default: 0 },
     progress: { type: Number, default: 0 },
@@ -90,7 +90,7 @@ export default {
     top: 0;
     bottom: 0;
     left: 0;
-    background-color: #1b5e20;
+    background-color: #004d40;
     z-index: -1;
   }
   .pos {
