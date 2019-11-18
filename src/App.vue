@@ -2,7 +2,7 @@
   <div id="app" class="resizable">
     <div class="head no-select">
       <div>
-        <span>5.0 采集时钟</span>
+        <span>5.0 简易采集时钟</span>
         <span class="time">ET {{ ET }}</span>
         <span class="time">LT {{ LT }}</span>
         <span class="btn" @click="showSetting = true">[选择]</span>
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { calcTime, getNextTime, outTime, outTimeSec } from './lib/dtEorzea';
+import { calcTime, getNextTime, outTimeSec } from './lib/dtEorzea';
 import item from './components/item.vue';
 import percent from './components/percent.vue';
 import itemsOrig from './data/item.json';
@@ -177,8 +177,9 @@ body {
     color: white;
     text-align: left;
     padding: 0 26px 0 10px;
+    font-weight: bold;
     div {
-      background-color: rgba(244, 67, 54, 0.5);
+      background-color: rgba(244, 67, 54, 0.8);
       padding-left: 16px;
       width: 100%;
       transform: skewX(-30deg);
@@ -202,6 +203,7 @@ body {
     }
     .item {
       margin-bottom: 4px;
+      font-weight: bold;
       .item-list {
         padding: 2px 4px;
         display: flex;
@@ -220,11 +222,11 @@ body {
           font-size: 14px;
         }
         .name {
-          width: 90px;
+          width: 115px;
           font-size: 14px;
         }
         .ls {
-          width: 150px;
+          width: 140px;
         }
       }
     }
@@ -239,7 +241,7 @@ body {
     }
     .active {
       .item-list {
-        background-color: rgba(139, 195, 74, 0.8);
+        background-color: rgba(67, 160, 71, 0.8);
       }
       .percent .bg {
         background-color: rgba(244, 67, 54, 0.8);
@@ -247,7 +249,7 @@ body {
     }
     .next {
       .item-list {
-        background-color: rgba(32, 149, 243, 0.6);
+        background-color: rgba(3, 115, 229, 0.6);
       }
     }
   }
@@ -286,7 +288,7 @@ body {
         }
         label {
           display: inline-block;
-          width: 100px;
+          width: 125px;
           text-align: left;
           margin-left: 8px;
         }

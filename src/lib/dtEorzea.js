@@ -91,14 +91,6 @@ function paddingLeft(text, figure) {
   return ret;
 }
 
-function sprintf(text, values) {
-  var ret = text;
-  for (var i = 0; i < values.length; i++) {
-    ret = ret.replace(new RegExp('\\{' + i + '\\}', 'g'), values[i]);
-  }
-  return ret;
-}
-
 export function getNextTime(timeText, dtEorzea) {
   var rDate = getTimeByDate(timeText, dtEorzea);
   return rDate;
