@@ -1,5 +1,6 @@
 <template>
   <div class="item-list">
+    <div class="progress" :style="{ width: `${progress}%` }"></div>
     <span class="pos no-select">[{{ item.pos }}]</span>
     <span class="name">{{ item.name }}</span>
     <span class="ls">{{ item.ls }}</span>
@@ -29,9 +30,10 @@ function padTime(time) {
 export default {
   name: 'Item',
   props: {
-    item: { type: Object, default: () => {} },
+    item: { type: Object, default: {} },
     hour: { type: Number, default: 0 },
     sec: { type: Number, default: 0 },
+    progress: { type: Number, default: 0 },
   },
   data() {
     return {
@@ -66,3 +68,40 @@ export default {
   },
 };
 </script>
+
+<style lang="less">
+.item-list {
+  padding: 2px 4px;
+  display: flex;
+  position: relative;
+  img {
+    height: 24px;
+    width: 24px;
+  }
+  span {
+    display: block;
+    height: 24px;
+    line-height: 24px;
+    margin: 0 4px;
+    font-size: 12px;
+  }
+  .progress {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #1b5e20;
+    z-index: -1;
+  }
+  .pos {
+    font-size: 14px;
+  }
+  .name {
+    width: 115px;
+    font-size: 14px;
+  }
+  .ls {
+    width: 140px;
+  }
+}
+</style>

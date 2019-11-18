@@ -11,8 +11,7 @@
     <div class="content">
       <div class="items">
         <div class="item" :class="it.cur ? 'active' : 'next'" v-for="(it, key) in works" :key="key">
-          <item :item="it" :hour="rtEpoch.hour" :sec="rtEpoch.Rsec" />
-          <percent v-show="it.cur" :percent="it.percent" />
+          <item :item="it" :hour="rtEpoch.hour" :sec="rtEpoch.Rsec" :progress="it.percent" />
         </div>
       </div>
     </div>
@@ -30,7 +29,6 @@
 <script>
 import { calcTime, getNextTime, outTimeSec } from './lib/dtEorzea';
 import item from './components/item.vue';
-import percent from './components/percent.vue';
 import itemsOrig from './data/item.json';
 
 function padTime(time) {
@@ -44,7 +42,7 @@ itemsOrig.forEach(({ name }) => {
 
 export default {
   name: 'App',
-  components: { item, percent },
+  components: { item },
   data() {
     const items = [];
     itemsOrig.forEach(item => {
@@ -150,11 +148,14 @@ body {
   padding: 0px;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+}
+body {
   background-color: transparent;
   background-image: url(./assets/handle.png);
   background-position: bottom right;
   background-repeat: no-repeat;
-  overflow: hidden;
+  background-size: 12px;
 }
 .btn {
   cursor: pointer;
@@ -204,52 +205,15 @@ body {
     .item {
       margin-bottom: 4px;
       font-weight: bold;
-      .item-list {
-        padding: 2px 4px;
-        display: flex;
-        img {
-          height: 24px;
-          width: 24px;
-        }
-        span {
-          display: block;
-          height: 24px;
-          line-height: 24px;
-          margin: 0 4px;
-          font-size: 12px;
-        }
-        .pos {
-          font-size: 14px;
-        }
-        .name {
-          width: 115px;
-          font-size: 14px;
-        }
-        .ls {
-          width: 140px;
-        }
-      }
-    }
-    .percent {
-      height: 4px;
-      width: 100%;
-      margin-top: 1px;
-      background-color: rgba(139, 195, 74, 0.3);
-      .bg {
-        height: 4px;
-      }
     }
     .active {
       .item-list {
-        background-color: rgba(67, 160, 71, 0.8);
-      }
-      .percent .bg {
-        background-color: rgba(244, 67, 54, 0.8);
+        background-color: rgba(76, 175, 80, 0.85);
       }
     }
     .next {
       .item-list {
-        background-color: rgba(3, 115, 229, 0.6);
+        background-color: rgba(3, 115, 229, 0.7);
       }
     }
   }
