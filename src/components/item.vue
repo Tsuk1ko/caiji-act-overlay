@@ -93,7 +93,7 @@ export default {
     background-color: rgba(28, 95, 32, 0.65);
   }
   :not(.progress) {
-    z-index: 100;
+    z-index: 1;
   }
   .pos {
     font-size: 14px;

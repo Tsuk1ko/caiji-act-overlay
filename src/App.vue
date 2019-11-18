@@ -36,8 +36,9 @@ function padTime(time) {
 }
 
 const nameList = {};
+const storage = JSON.parse(localStorage.getItem('show') || '{}');
 itemsOrig.forEach(({ name }) => {
-  nameList[name] = true;
+  nameList[name] = storage[name] || true;
 });
 
 export default {
@@ -59,10 +60,7 @@ export default {
       rtEpoch: { hour: 0, min: 0, sec: 0, Rhour: 0, Rmin: 0, Rsec: 0, time: 0 },
       items,
       works: [],
-      showItem: {
-        ...nameList,
-        ...JSON.parse(localStorage.getItem('show') || '{}'),
-      },
+      showItem: nameList,
       showSetting: false,
     };
   },
@@ -229,6 +227,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10000;
     .close {
       position: absolute;
       right: 8px;
@@ -246,15 +245,17 @@ body {
         margin-bottom: 8px;
         input {
           display: inline-block;
-          width: 20px;
-          height: 20px;
+          width: 14px;
+          height: 14px;
           margin: 0;
         }
         label {
           display: inline-block;
-          width: 125px;
+          width: 110px;
           text-align: left;
-          margin-left: 8px;
+          margin-left: 4px;
+          font-size: 14px;
+          line-height: 14px;
         }
       }
     }
