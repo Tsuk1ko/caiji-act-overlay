@@ -142,8 +142,8 @@ export default {
 <style lang="less">
 html,
 body {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -251,7 +251,7 @@ body {
         }
         label {
           display: inline-block;
-          width: 110px;
+          width: 115px;
           text-align: left;
           margin-left: 4px;
           font-size: 14px;

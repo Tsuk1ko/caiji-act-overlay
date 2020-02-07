@@ -1,7 +1,6 @@
 <template>
   <div class="item-list">
     <div class="progress" :style="{ width: `${progress}%` }"></div>
-    <span class="pos no-select">[{{ item.pos }}]</span>
     <span class="name">{{ item.name }}</span>
     <span class="ls">{{ item.ls }}</span>
     <span class="no-select"> ET.{{ item.start }}</span>
@@ -94,9 +93,6 @@ export default {
   }
   :not(.progress) {
     z-index: 1;
-  }
-  .pos {
-    font-size: 14px;
   }
   .name {
     width: 115px;
