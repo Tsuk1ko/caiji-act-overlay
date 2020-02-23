@@ -2,6 +2,8 @@
 
 适用于 ACT Overlay 的采集时钟
 
+使用方式：模板地址填`https://caiji-act-overlay.lolicon.app`
+
 ## Project setup
 ```
 yarn install

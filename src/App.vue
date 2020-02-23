@@ -2,7 +2,7 @@
   <div id="app" class="resizable">
     <div class="head no-select">
       <div>
-        <span>5.0 简易采集时钟</span>
+        <span>简易采集时钟</span>
         <span class="time">ET {{ ET }}</span>
         <span class="time">LT {{ LT }}</span>
         <span class="btn" @click="showSetting = true">[选择]</span>
