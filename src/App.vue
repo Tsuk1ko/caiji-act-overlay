@@ -19,7 +19,8 @@
       <div class="close btn" @click="showSetting = false">[X]</div>
       <div class="checkbox-group">
         <div class="checkbox" v-for="(v, k) in showItem" :key="k">
-          <input type="checkbox" v-model="showItem[k]" :id="k" /><label :for="k">{{ k }}</label>
+          <input type="checkbox" v-model="showItem[k]" :id="k" />
+          <label :for="k">{{ k }}</label>
         </div>
       </div>
     </div>
@@ -38,7 +39,7 @@ function padTime(time) {
 const nameList = {};
 const storage = JSON.parse(localStorage.getItem('show') || '{}');
 itemsOrig.forEach(({ name }) => {
-  nameList[name] = storage[name] || true;
+  nameList[name] = name in storage ? storage[name] : true;
 });
 
 export default {
