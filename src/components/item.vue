@@ -1,11 +1,11 @@
 <template>
   <div class="item-list">
     <div class="progress" :style="{ width: `${progress}%` }"></div>
-    <span class="name">{{ item.name }}</span>
-    <span class="ls">{{ item.ls }}</span>
-    <span class="no-select"> ET.{{ item.start }}</span>
-    <span class="no-select" v-if="cur"> 余{{ str }} </span>
-    <span class="no-select" v-else>LT.{{ item.startTimeStr }}</span>
+    <span class="grow-1 name">{{ item.name }}</span>
+    <span class="grow-1 ls">{{ item.ls }}</span>
+    <span class="no-select et"> ET.{{ item.start }}</span>
+    <span class="grow-2 no-select lt" v-if="cur"> 余{{ str }} </span>
+    <span class="grow-2 no-select lt" v-else>LT.{{ item.startTimeStr }}</span>
   </div>
 </template>
 
@@ -70,7 +70,7 @@ export default {
 
 <style lang="less">
 .item-list {
-  padding: 2px 4px;
+  padding: 2px;
   display: flex;
   position: relative;
   img {
@@ -81,7 +81,7 @@ export default {
     display: block;
     height: 24px;
     line-height: 24px;
-    margin: 0 4px;
+    margin: 0 6px;
     font-size: 12px;
   }
   .progress {
@@ -95,11 +95,20 @@ export default {
     z-index: 1;
   }
   .name {
-    width: 115px;
+    min-width: 120px;
     font-size: 14px;
   }
   .ls {
-    width: 140px;
+    min-width: 140px;
+  }
+  .lt {
+    min-width: 75px;
+  }
+  .grow-1 {
+    flex-grow: 1;
+  }
+  .grow-2 {
+    flex-grow: 5;
   }
 }
 </style>

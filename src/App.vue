@@ -169,6 +169,7 @@ body {
   text-align: center;
   color: #2c3e50;
   text-shadow: 0 0 0.125em rgba(0, 0, 0, 0.4);
+  min-width: 390px;
   .head {
     display: block;
     height: 28px;
