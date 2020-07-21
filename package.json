@@ -1,6 +1,6 @@
 {
-  "name": "nbb.aethersand",
   "version": "0.1.0",
+  "name": "caiji-act-overlay",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -8,17 +8,17 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "core-js": "^2.6.11",
+    "core-js": "^3.6.5",
     "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.12.1",
-    "@vue/cli-plugin-eslint": "^3.12.1",
-    "@vue/cli-service": "^3.12.1",
+    "@vue/cli-plugin-babel": "^4.4.6",
+    "@vue/cli-plugin-eslint": "^4.4.6",
+    "@vue/cli-service": "^4.4.6",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.4.0",
+    "eslint": "^7.5.0",
     "eslint-plugin-vue": "^6.2.2",
-    "less": "^3.12.0",
+    "less": "^3.12.2",
     "less-loader": "^6.2.0",
     "vue-template-compiler": "^2.6.11"
   },
@@ -33,14 +33,6 @@
     ],
     "parserOptions": {
       "parser": "babel-eslint"
-    },
-    "rules": {
-      "vue/no-use-v-if-with-v-for": "off"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
     }
   },
   "browserslist": [
