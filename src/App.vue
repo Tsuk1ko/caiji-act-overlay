@@ -1,5 +1,6 @@
 <template>
   <div id="app" class="resizable">
+    <div style="display: none" v-html="style"></div>
     <div class="head no-select">
       <div>
         <span>简易采集时钟</span>
@@ -28,13 +29,16 @@
 </template>
 
 <script>
+import _ from 'lodash';
 import { calcTime, getNextTime, outTimeSec } from './lib/dtEorzea';
 import item from './components/item.vue';
 import itemsOrig from './data/item.json';
 
-function padTime(time) {
+const padTime = time => {
   return time < 10 ? `0${time}` : `${time}`;
-}
+};
+
+const getTextWidth = (text, size) => _.sumBy(text, word => (_.inRange(word.charCodeAt(0), 256) ? 0.5 : 1)) * size;
 
 const nameList = {};
 const storage = JSON.parse(localStorage.getItem('show') || '{}');
@@ -46,23 +50,27 @@ export default {
   name: 'App',
   components: { item },
   data() {
-    const items = [];
-    itemsOrig.forEach(item => {
-      item.start.forEach(s => {
-        items.push({
-          ...item,
-          start: `${padTime(s)}:00`,
-          end: `${padTime(s + (item.start.length > 1 ? 2 : 4))}:00`,
-          duration: (item.start.length > 1 ? 2 : 4) * (70 / 1440) * 3600,
-        });
-      });
-    });
     return {
       rtEpoch: { hour: 0, min: 0, sec: 0, Rhour: 0, Rmin: 0, Rsec: 0, time: 0 },
-      items,
+      items: _.transform(
+        itemsOrig,
+        (arr, item) => {
+          item.start.forEach(s => {
+            arr.push({
+              ...item,
+              start: `${padTime(s)}:00`,
+              end: `${padTime(s + (item.start.length > 1 ? 2 : 4))}:00`,
+              duration: (item.start.length > 1 ? 2 : 4) * (70 / 1440) * 3600,
+            });
+          });
+        },
+        []
+      ),
       works: [],
       showItem: nameList,
       showSetting: false,
+      maxNameWidth: _.max(itemsOrig.map(({ name }) => getTextWidth(name, 14))),
+      maxLsWidth: _.max(itemsOrig.map(({ ls }) => getTextWidth(ls, 12))),
     };
   },
   computed: {
@@ -71,6 +79,9 @@ export default {
     },
     LT() {
       return [this.rtEpoch.Rhour, this.rtEpoch.Rmin, this.rtEpoch.Rsec].map(v => padTime(v)).join(':');
+    },
+    style() {
+      return `<style>#app .setting .checkbox-group .checkbox label,.item-list .name{min-width:${this.maxNameWidth}px;width:${this.maxNameWidth}px}.item-list .ls{min-width:${this.maxLsWidth}px;width:${this.maxLsWidth}px}</style>`;
     },
   },
   watch: {

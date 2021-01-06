@@ -4,8 +4,8 @@
     <span class="grow-1 name">{{ item.name }}</span>
     <span class="grow-1 ls">{{ item.ls }}</span>
     <span class="no-select et"> ET.{{ item.start }}</span>
-    <span class="grow-2 no-select lt" v-if="cur"> 余{{ str }} </span>
-    <span class="grow-2 no-select lt" v-else>LT.{{ item.startTimeStr }}</span>
+    <span class="no-select lt" v-if="cur"> 余{{ str }} </span>
+    <span class="no-select lt" v-else>LT.{{ item.startTimeStr }}</span>
   </div>
 </template>
 
@@ -73,6 +73,7 @@ export default {
   padding: 2px;
   display: flex;
   position: relative;
+  white-space: nowrap;
   img {
     height: 24px;
     width: 24px;
@@ -95,20 +96,13 @@ export default {
     z-index: 1;
   }
   .name {
-    min-width: 120px;
     font-size: 14px;
   }
-  .ls {
-    min-width: 140px;
-  }
   .lt {
-    min-width: 75px;
+    width: 70px;
   }
   .grow-1 {
     flex-grow: 1;
-  }
-  .grow-2 {
-    flex-grow: 5;
   }
 }
 </style>
